@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5在线画板</title>
+    <link rel="stylesheet" href="../css/canvas.css" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header id="header">HTML5 canvas 在线画板</header>
+  <section id="content">
+    <!-- 工具区域 -->
+    <ul id="tool">
+      <li>
+        <h3>图像</h3>
+        <hr/>
+        <button class="btn btn-lg btn-danger btnClean" onclick="clearImg()">
+          <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+          清空画板
+        </button>
+        <br/>
+        <label for="file" class=" btn btn-primary btnAdd" style="font-size: 18px;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 添加图片</label>
+        <input id="file"type="file"style="display:none">
+      </li>
+      <li>
+        <h3>工具</h3>
+        <hr/>
+        <ul id="means">
+          <li id="means_paint" onclick="drawPencil(0)">
+            <span class="glyphicon glyphicon-pencil icon" aria-hidden="true"></span>
+          </li>
+          <li id="means_brush" onclick="drawBrush(1)">
+            <span class="glyphicon glyphicon-ice-lolly icon" aria-hidden="true"></span>
+          </li>
+          <li id="means_eraser" onclick="drawEraser(2)">
+            <span class="glyphicon glyphicon-erase icon" aria-hidden="true"></span>
+          </li>
+          <li id="means_rotate" onclick="drawRotate(3)">
+            <span class="glyphicon glyphicon-repeat icon" aria-hidden="true"></span>
+          </li>
+          <li id="means_zoom_in" onclick="drawZoomIn(4)">
+            <span class="glyphicon glyphicon-zoom-in icon" aria-hidden="true"></span>
+          </li>
+          <li id="means_zoom_out" onclick="drawZoomOut(5)">
+            <span class="glyphicon glyphicon-zoom-out icon" aria-hidden="true"></span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>形状</h3>
+        <hr/>
+        <ul id="shape">
+          <li id="shape_line" onclick="line(6)">
+            <img src="../img/line.png"/>
+          </li>
+          <li id="shape_arc" onclick="arc(7)">
+            <img src="../img/arc.png"/>
+          </li>
+          <li id="shape_rect" onclick="rect(8)">
+            <img src="../img/rect.png"/>
+          </li>
+          <li id="shape_poly" onclick="poly(9)">
+            <img src="../img/poly.png"/>
+          </li>
+          <li id="shape_arcfill" onclick="arcFill(10)">
+            <img src="../img/arcfill.png"/>
+          </li>
+          <li id="shape_rectfill" onclick="rectFill(11)">
+            <img src="../img/rectfill.png"/>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>线宽</h3>
+        <hr/>
+        <ul id="size">
+          <li id="width_1" onclick="setLineWidth(0)">
+            <img src="../img/line1px.png" alt="">
+          </li>
+          <li id="width_3" onclick="setLineWidth(1)">
+            <img src="../img/line3px.png" alt="">
+          </li>
+          <li id="width_5" onclick="setLineWidth(2)">
+            <img src="../img/line5px.png" alt="">
+          </li>
+          <li id="width_8" onclick="setLineWidth(3)">
+            <img src="../img/line8px.png" alt="">
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3>颜色</h3>
+        <hr/>
+        <ul id="color">
+          <li id="red" onclick="setColor(this,0)"></li>
+          <li id="green" onclick="setColor(this,1)"></li>
+          <li id="blue" onclick="setColor(this,2)"></li>
+          <li id="yellow" onclick="setColor(this,3)"></li>
+          <li id="white" onclick="setColor(this,4)"></li>
+          <li id="black" onclick="setColor(this,5)"></li>
+          <li id="pink" onclick="setColor(this,6)"></li>
+          <li id="purple" onclick="setColor(this,7)"></li>
+          <li id="cyan" onclick="setColor(this,8)"></li>
+          <li id="orange" onclick="setColor(this,9)"></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- 绘画区域 -->
+    <canvas id="canvas" width="875" height="450">
+      您的浏览器不支持 canvas 标签，请升级浏览器！
+    </canvas>
+    <script src="../js/canvas.js"></script>
+  </section>
+  </body>
+</html>
